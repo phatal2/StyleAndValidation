@@ -24,7 +24,8 @@ namespace StyleAndValidation.ViewModels
         public async Task Close()
         {
             IsRunning = false;
-            await AppShell.Current.GoToAsync("..");
+            await AppShell.Current.Navigation.PopModalAsync();  
+       //     await AppShell.Current.GoToAsync("..");
         }
     }
 }

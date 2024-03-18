@@ -42,7 +42,7 @@ namespace StyleAndValidation.Services
             return true;    
         }
 
-        internal void Logout()
+        public void Logout()
         {
             loggedUser = null;
         }

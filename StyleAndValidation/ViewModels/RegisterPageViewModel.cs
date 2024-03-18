@@ -77,14 +77,16 @@ namespace StyleAndValidation.ViewModels
            User registered=new () { BirthDate=BirthDate, Email=Email, FullName=FullName, Password=Password, Username=Username};
             #region מסך טעינה
             await AppShell.Current.GoToAsync("Loading");
-            var loading=AppShell.Current.CurrentPage.BindingContext as LoadingPageViewModel;
+            int index=AppShell.Current.CurrentPage.Navigation.ModalStack.Count-1;
+            var loading=AppShell.Current.CurrentPage.Navigation.ModalStack[index].BindingContext as LoadingPageViewModel;
             #endregion
             bool ok = await appServices.RegisterUserAsync(registered);
 
-          #region סגירת מסך טעינה
-                await loading.Close();
-                #endregion
-           if (ok)
+            #region סגירת מסך טעינה
+            await AppShell.Current.Navigation.PopModalAsync();
+            //   await loading.Close();
+            #endregion
+            if (ok)
             {
                 await AppShell.Current.DisplayAlert("הצלחה", "הנך מועבר.ת למסך הכניסה", "Ok");
                 await AppShell.Current.GoToAsync("Login");
