@@ -82,7 +82,7 @@ namespace StyleAndValidation.ViewModels
             bool ok = await appServices.RegisterUserAsync(registered);
 
           #region סגירת מסך טעינה
-                //await loading.Close();
+                await loading.Close();
                 #endregion
            if (ok)
             {
