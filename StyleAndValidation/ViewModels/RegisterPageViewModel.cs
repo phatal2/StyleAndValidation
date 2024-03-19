@@ -82,7 +82,7 @@ namespace StyleAndValidation.ViewModels
              * int index=AppShell.Current.CurrentPage.Navigation.ModalStack.Count-1;
            
             var loading=AppShell.Current.CurrentPage.Navigation.ModalStack[index].BindingContext as LoadingPageViewModel;
-            /*
+            */
             #endregion
             bool ok = await appServices.RegisterUserAsync(registered);
 
